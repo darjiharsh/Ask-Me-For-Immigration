@@ -1,0 +1,20 @@
+<?php
+//var_dump($_POST);
+$countryname = $_POST['txt_country'];
+$id = $_POST['id'];
+$dt=date('Y-m-d H:i:s');
+require '../creartdemo1/database.php';
+  //Show All type of users
+  // echo "<br>"."Show All Users!"."<br>"; 
+  $qry = "UPDATE country_tbl SET name='".$countryname."',dou='". $dt ."' WHERE id=$id";
+  // echo "$qry"."<br>";
+ $rs = mysqli_query($conn,$qry);
+ if($rs)
+ {
+ 	header('location:manage_country.php');
+ }
+ else
+ {
+ 	echo "update error";
+ }
+?>
